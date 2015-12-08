@@ -1,4 +1,4 @@
-  <title>FLmail</title>
+  <title>MITSMAIL</title>
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('lib/css/bootstrap.min.css'); ?>"/>
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('lib/css/prettify.css'); ?>"/>
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('src/bootstrap-wysihtml5.css'); ?>"/>
