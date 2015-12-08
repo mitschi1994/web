@@ -2,7 +2,7 @@
  </head>
   <body>
     <div id="contenedor_login">
-      <h1 id="centrar">FLmail</h1>
+      <h1 id="centrar">MITSMAIL</h1>
         <form action="/CodeIgniter/usuario/autenticar" method="post" accept-charset="utf-8">
           <label for="usuario">Usuario:</label>
           <input type="text" size="20" id="usuario" name="usuario" placeholder="Usuario" autofocus required/>
