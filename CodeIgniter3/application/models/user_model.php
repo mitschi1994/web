@@ -51,6 +51,36 @@ class User_model extends CI_Model {
     return false;
    }
    }
+   
+   
+   function registrar($data)
+    {
+        return $this->db->insert('usuario', $data);
+
+    }
+
+    function confirmar($user)
+    {
+        $data = array('estado' => 1);
+        $query= $this ->db-> update('usuario', $data, "usuario='$user'");
+        
+        if($query)
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+    }
+
+  function buscarID(){
+
+    $this ->db-> select('*');
+    $this ->db-> where('sesion', 1);
+    $query = $this ->db-> get('usuario');
+   return $query->result();
+  }
     
     
 
