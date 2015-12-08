@@ -162,7 +162,7 @@ class Usuario extends CI_Controller {
  		$destinos = $this->Correos_model->seleccionardestino($idcorreo);
  		foreach ($destinos as $value) {
  			$listacorreos = array("'"+$value->destino+"'"+",");
- 		}*/
+ 		}
 
 
  		$this->email->set_newline("\r\n");
