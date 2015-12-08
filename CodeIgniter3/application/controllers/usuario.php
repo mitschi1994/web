@@ -124,6 +124,75 @@ class Usuario extends CI_Controller {
  	$this->load->view('utilizable/headers');
  	$this->load->view('usuario/crear');
  }
+ 
+ 
+
+ public function guardarcorreo()
+ {
+ 	$estado = 0;
+ 	$userid;
+ 	$id = $this->user->buscarID();
+ 	foreach ($id as $value) {
+ 		$userid = $value->id;
+ 	}
+ 	$time = time();
+ 	$destino =  $this->input->post('email');
+	$fecha = date("d-m-Y (H:i:s)", $time);
+ 	$correo = array(
+ 			'asunto' => $this->input->post('asunto'),
+        	'estado' => $estado,
+        	'contenido' => $this->input->post('contenido'),
+        	'usuarioid' => $userid,
+        	'fechacreacion' => $fecha
+        	);
+
+        $resultado = $this->Correos_model->insert($correo,$destino,$fecha);
+        if ($resultado) {
+        	redirect('correo', 'refresh');
+        }
+ }
+
+ public function enviarCorreo(){
+ 		
+ 		$usuarios = $this->Correos_model->seleccionarusuario($idusuario);
+ 		foreach ($usuarios as $value) {
+ 			$usuario = $value->nombre;
+ 		}
+
+ 		$destinos = $this->Correos_model->seleccionardestino($idcorreo);
+ 		foreach ($destinos as $value) {
+ 			$listacorreos = array("'"+$value->destino+"'"+",");
+ 		}*/
+
+
+ 		$this->email->set_newline("\r\n");
+		$this->email->from('michelleramrezflores@gmail.com', "Usuario");
+		$listacorreos = array('michelleramrezflores@gmail.com','ofonsecasa@gmail.com','ale.24151@gmail.com');
+		$this->email->to($listacorreos);
+		$this->email->subject("Prueba");
+		$this->email->message("Esta es la prueba de que si sirve");
+		if ($this->email->send()) {
+			echo "Correos Enviados";
+		}
+		//con esto podemos ver el resultado
+		else show_error($this->email->print_debugger());
+ }
+
+ 	public function cargarcorreo(){
+		$correo = $_GET['correo'];
+
+		$correoobt = $this->correo->cargarcorreo($correo);
+	}
+	public function eliminarcorreo()
+	{
+		$idcorreo = $this->input->post('id');
+		var_dump($idcorreo);
+		die();
+		if ($this->Correos_model->eliminarcorreo($idcorreo)) {
+			redirect('correo', 'refresh');
+		}
+	}
+}
 
 
 ?>
