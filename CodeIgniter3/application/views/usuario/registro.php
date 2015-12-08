@@ -1,4 +1,4 @@
-   <title>FLmail Registro</title>
+   <title>MITSMAIL Registro</title>
  </head>
  <body>
 	 <div id="contenedor_registro">
