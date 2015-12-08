@@ -56,4 +56,4 @@ $route['fail'] = 'usuario/loginfail';
 $route['failreg'] = 'usuario/registrofail';
 $route['confirmacion'] = 'usuario/confirmacion';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['translate_uri_dashes'] = FALSE; 
