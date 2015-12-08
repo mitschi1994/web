@@ -9,6 +9,22 @@ class Correos_model extends CI_Model {
         $this->load->database();
         $this->load->model('User_model', 'user');
     }
+    
+    /**
+     *  Obtains all courses from the database
+     */
+    public function get_all() 
+    {
+        $id = $this->user->buscarID();
+    	$this ->db-> select('*');
+        $this ->db-> where('estado', 0);
+        $this ->db-> where('usuarioid', $id);
+ 
+   $q = $this ->db-> get('correo');
+    	return $q->result();
+    }
+
+    
 
     
 }
